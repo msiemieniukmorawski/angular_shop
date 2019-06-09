@@ -1,0 +1,15 @@
+.footer{
+    p{
+        margin: 0;
+        color: #9a9c9e;
+    }
+    a{
+        color: #f8f9fa;
+        transition: 0.3s all;
+        &:hover{
+            color: #9a9c9e;
+            text-decoration: none;
+        }
+    }
+    padding:20px 0;
+}

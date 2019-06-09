@@ -1,0 +1,73 @@
+<header>
+  
+  <nav class="bg-dark navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex" href="#"><strong>SHOP</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto w-100">
+          <li class="nav-item d-flex">
+            <a class="nav-link align-middle" routerLinkActive="active" routerLink="home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item d-flex">
+            <a class="nav-link align-middle" routerLinkActive="active" routerLink="shop">Shop</a>
+          </li>
+          <li class="nav-item d-flex ml-auto nav-basket">
+            <a class="nav-link align-middle " (click)="open(content)">
+              <svg-icon src="assets/shopping-bag.svg" [svgStyle]="{ 'width.px':30, 'fill': '#fff' }"></svg-icon>
+              <span>{{basketproduct}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+</header>
+
+<ng-template #content let-modal >
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Basket</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body modal__basket__row align-items-center d-flex">
+    <div class=" modal__basket__name w-50">
+      Name
+    </div>
+      <div class="modal__basket__quantity w-20">
+        Quantity
+      </div>
+      <div class="modal__basket__price w-20">
+        Price
+      </div>
+      <div class="modal__basket__remove w-10">
+        
+      </div>
+   </div>
+  <div *ngFor="let product of products">
+    <div class="modal-body modal__basket__row align-items-center d-flex">
+      <div class=" modal__basket__name w-50">
+        {{product.name}}
+      </div>
+      <div class="modal__basket__quantity w-20">
+        {{product.quantity}}
+      </div>
+      <div class="modal__basket__price w-20">
+        {{product.quantity * product.amount | currency}}
+      </div>
+      <div class="modal__basket__remove w-10">
+        <a (click)="removeFromBasket(product._id)">
+          <svg-icon src="assets/garbage.svg" [svgStyle]="{ 'width.px':30, 'fill': 'rgb(199, 8, 8)' }"></svg-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">BUY</button>
+  </div>
+</ng-template>

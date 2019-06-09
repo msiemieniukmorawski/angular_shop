@@ -1,0 +1,29 @@
+<div class="single__product row">
+  <div class="col-ms-12 col-md-6 single__product__images">
+    <img src="{{product.image}}" alt="{{product.name}}" class="img-fluid" />
+    <p *ngIf="product.tag === 'New'" class="badge badge-success">{{product.tag}}</p>
+    <p *ngIf="product.tag === 'Sale'" class="badge badge-danger">{{product.tag}}</p>
+  </div>
+  <div class="col-ms-12 col-md-6 single__product__description">
+    <h1 class="single__product__name">{{product.name}}</h1>
+    <p class="single__product__short">
+      {{product.shortDescrotion}}
+    </p>
+    <div class="single__product__price">
+      {{product.amount | currency}}
+    </div>
+    <div class="single__product__buy">
+      <p (click)="addProduct(product._id, Mproduct)" class="btn btn-light" role="button">
+        Buy
+      </p>
+    </div>
+  </div>
+      <div class="col-ms-12 col-md-12 single__product__fullDescription" [innerHTML]="product.description">
+      </div>
+</div>
+  
+<ng-template #Mproduct let-modal>
+  <div class="modal__addBasket">
+    <p>Add to basket</p>
+  </div>
+</ng-template>

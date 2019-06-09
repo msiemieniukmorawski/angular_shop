@@ -1,0 +1,49 @@
+.box__images{
+    position: relative;
+    min-height: 240px;
+
+    .badge{
+        position: absolute;
+        top:10px;
+        left: 10px;
+        padding: 0.45em 0.6em;
+        font-size: 0.9rem;
+    }
+}
+.box__title{
+    text-align: center;
+    font-size: 1.3rem;
+    a{
+        transition: 0.3s all;
+        color: #000;
+        &:hover{
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.6);
+        }
+    }
+}
+.box__price{
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+}
+.box__buy{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+    .btn{
+        cursor: pointer;
+        min-width: 80%;
+    }
+}
+p{
+    margin: 0;
+}
+.modal__addBasket{
+    p{
+        font-size: 1.5rem;
+        color: rgb(199, 8, 8);
+        text-align: center;
+        padding:20px;
+    }
+}

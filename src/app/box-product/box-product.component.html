@@ -1,0 +1,29 @@
+<div>
+  <div class="box__images">
+    <img src="{{data.image}}" alt="{{data.name}}" class="img-fluid" />
+    <p *ngIf="data.tag === 'New'" class="badge badge-success">{{data.tag}}</p>
+    <p *ngIf="data.tag === 'Sale'" class="badge badge-danger">{{data.tag}}</p>
+
+  </div>
+  <p class="box__title">
+    <a [routerLink]="['/product/' + data._id]" >
+        {{data.name}}
+      </a>
+  </p>
+  <p class="box__price">
+    {{data.amount | currency}}
+  </p>
+  <div class="box__buy">
+    <p class="btn btn-light" role="button" (click)="addProduct(data._id, product)">
+      Buy
+    </p>
+  </div>
+
+</div>
+
+
+<ng-template #product let-modal>
+  <div class="modal__addBasket">
+    <p>Add to basket</p>
+  </div>
+</ng-template>
